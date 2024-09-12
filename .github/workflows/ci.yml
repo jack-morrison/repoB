@@ -1,0 +1,21 @@
+name: 'CI'
+
+on:
+  workflow_call:
+
+jobs:
+  build-checks:
+    name: World... hello!
+    runs-on: '${{ matrix.os }}'
+    strategy:
+      matrix:
+        os:
+          - ubuntu-22.04
+        cc:
+          - gcc
+      fail-fast: true
+    steps:
+      - name: 'Do a thing'
+        run: |
+          echo 'hello, world!'
+

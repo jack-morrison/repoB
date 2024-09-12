@@ -1,0 +1,20 @@
+name: 'Nightly'
+
+on:
+  workflow_call:
+
+jobs:
+  build-checks:
+    name: I say hello to the world once nightly.
+    runs-on: '${{ matrix.os }}'
+    strategy:
+      matrix:
+        os:
+          - ubuntu-22.04
+        cc:
+          - gcc
+      fail-fast: true
+    steps:
+      - name: 'Do a thing but at night'
+        run: |
+          echo 'hello, world, tonight!'
