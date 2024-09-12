@@ -20,4 +20,7 @@ jobs:
       - name: 'get sha of head of repoA main branch'
         run: |
           pwd
-          git ls-remote -q | grep refs/head/main | awk '{print $1}'
+          ls
+          which git
+          git remote -v
+          git ls-remote -q | grep refs/heads/main$ | awk '{print $1}'
