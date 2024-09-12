@@ -5,7 +5,7 @@ on:
 
 jobs:
   build-checks:
-    name: I say hello to the world once nightly.
+    name: I am scheduled.
     runs-on: '${{ matrix.os }}'
     strategy:
       matrix:
@@ -15,6 +15,9 @@ jobs:
           - gcc
       fail-fast: true
     steps:
-      - name: 'Do a thing but at night'
+      - name: 'Checkout repoA'
+        uses: actions/checkout@v4
+      - name: 'get sha of head of repoA main branch'
         run: |
-          echo 'hello, world, tonight!'
+          pwd
+          git ls-remote -q | grep refs/head/main | awk '{print $1}'
