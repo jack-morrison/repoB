@@ -24,3 +24,4 @@ jobs:
           which git
           git remote -v
           git ls-remote -q | grep refs/heads/main$ | awk '{print $1}'
+          echo ${{ github.sha }}
